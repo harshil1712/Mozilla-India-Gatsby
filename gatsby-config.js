@@ -13,6 +13,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -33,7 +34,7 @@ module.exports = {
         fonts: [
           {
             family: `Zilla Slab`,
-            variants: [`400`, `700`]
+            variants: [`400`, `600`,`700`]
           },
           {
             family: `Fira Sans`,
@@ -41,6 +42,12 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve:"gatsby-source-filesystem",
+      options: {
+        path:"./data/"
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

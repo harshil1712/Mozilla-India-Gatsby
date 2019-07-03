@@ -1,9 +1,13 @@
 import React from "react"
+import {graphql} from 'gatsby'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RegionalGroups from '../components/regionalgroups'
+import FunctionalGroups from '../components/functionalgroups'
+import Groups from '../components/groups'
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Mozilla India" />
     <section className="section">
@@ -110,206 +114,52 @@ const IndexPage = () => (
                         </div>
                     </div>
                 </div>
-                <div className="tile is-ancestor is-vertical">
-                    <div className="tile is-parent">
-                        <div className="tile is-child box">
-                            <div className="tile is-ancestor is-vertical">
-                                <div className="tile is-parent">
-                                    <p className="title">Regional groups</p>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Delhi</p>
-                                            <a href="https://t.me/mozilladelhi">Telegram</a>
-                                            <a href="https://twitter.com/mozilladelhincr">Twitter</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Gujarat</p>
-                                            <a href="http://mozillagujarat.org">Website</a>
-                                            <a href="https://t.me/joinchat/CpXrs0J9FOfBVAB4TTEzAw">Telegram</a>
-                                            <a href="https://github.com/mozguj">GitHub</a>
-                                            <a href="https://twitter.com/mozguj">Twitter</a>
-                                            <a href="https://www.instagram.com/mozguj/">Instagram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Hyderabad</p>
-                                            <a href="https://t.me/MozHyderabad">Telegram</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Karnataka (BLR)</p>
-                                            <a href="https://t.me/joinchat/AFfAPD1xS9_WEiXjDfkYGA">Telegram</a>
-                                            <a href="https://twitter.com/MozKarnataka">Twitter</a>
-                                            <a href="https://www.meetup.com/mozilla_bangalore/">Meetup</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Kerala</p>
-                                            <a href="https://mozillakerala.com/">Website</a>
-                                            <a href="https://t.me/mozilla_kerala">Telegram</a>
-                                            <a href="https://github.com/MozillaKerala">GitHub</a>
-                                            <a href="https://twitter.com/MozillaKerala">Twitter</a>
-                                            <a href="https://www.instagram.com/mozillakerala/">Instagram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Nashik</p>
-                                            <a href="https://t.me/MozillaNashik">Telegram</a>
-                                            <a href="https://twitter.com/mozillanashik">Twitter</a>
-                                            <a href="https://www.instagram.com/mozillanashik/">Instagram</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Pune</p>
-                                            <a href="https://t.me/joinchat/AAAAAD7Sg38JxPvt489eoA">Telegram</a>
-                                            <a href="https://www.facebook.com/mozPune/">Facebook</a>
-                                            <a href="https://twitter.com/mozpune">Twitter</a>
-                                            <a href="https://www.meetup.com/Pune-Mozilla-Meetup/">Meetup</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Punjab</p>
-                                            <a href="https://www.meetup.com/MozillaPunjab/">Website</a>
-                                            <a href="https://t.me/mozillapunjab">Telegram</a>
-                                            <a href="https://github.com/MozillaPunjab">GitHub</a>
-                                            <a href="https://twitter.com/MozPunjab">Twitter</a>
-                                            <a href="https://www.facebook.com/MozillaPunjab">Facebook</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Rajasthan</p>
-                                            <a href="https://t.me/mozillarajasthan">Telegram</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Tamil Nadu</p>
-                                            <a href="https://t.me/mozillatnc">Telegram</a>
-                                            <a href="https://github.com/MozillaTN">GitHub</a>
-                                            <a href="https://twitter.com/mozillaTN">Twitter</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent"></div>
-                                    <div className="tile is-parent"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {/* Regional Groups */}
+                <Groups data={data.regionalGroups} name="Regional Groups" />
+                {/* Functional Groups */}
+                <Groups data={data.functionalGroups} name="Functional Groups" />
+                <Groups data={data.campusClubs} name="Campus Clubs" description={["A Mozilla University &amp; College Club is a group of students with a passion for technology who meet regularly to advance this mission by building and innovating on open source projects that keep the web open.To learn more about Campus Clubs, you can visit the ",<a href='https://campus.mozilla.community/'>Mozilla Campus Club Website</a>]} />
                 </div>
-                <div className="tile is-ancestor">
-                    <div className="tile is-parent">
-                        <div className="tile is-child box">
-                            <div className="tile is-ancestor is-vertical">
-                                <div className="tile is-parent">
-                                    <p className="title">Functional groups</p>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Hindi Localization Group</p>
-                                            <a href="https://t.me/joinchat/CEMWVhH5ueW0zSAqfma6lA">Telegram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Malayalam Localization Group</p>
-                                            <a href="https://t.me/firefoxsmc">Telegram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Open Design</p>
-                                            <a href="https://github.com/mozilla/OpenDesign/">GitHub</a>
-                                            <a href="https://t.me/opendesign">Telegram</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="tile is-ancestor">
-                    <div className="tile is-parent">
-                        <div className="tile is-child box">
-                            <div className="tile is-ancestor is-vertical">
-                                <div className="tile is-parent is-vertical">
-                                    <p className="title">Campus Clubs</p>
-                                    A Mozilla University &amp; College Club is a group of students with a passion for technology who meet regularly to advance this mission by building and innovating on open source projects that keep the web open.To learn more about Campus Clubs, you can visit the <a href="https://campus.mozilla.community/">Mozilla Campus Club Website</a>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Campus Club BVUCOE, Pune</p>
-                                            <a href="https://www.facebook.com/mozilacampusclubbvucoep/">Facebook</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">FOSSers VAST, Kerala</p><br/>
-                                            <a href="http://fossers.vidyaacademy.ac.in">Website</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">GLUG MVIT, Bangalore</p><br/>
-                                            <a href="https://blog.glugmvit.com/">Website</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Campus Club MACE, Kerala</p>
-                                            <a href="https://www.instagram.com/mozillamace/">Instagram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Campus Club NUV, Vadodara</p>
-                                            <a href="https://www.instagram.com/cybersocietynuv/">Instagram</a>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <p className="subtitle">Mozilla Campus Club SJCET, Kerala</p>
-                                            <a href="https://www.instagram.com/mozilla.sjcet/">Instagram</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile">
-                                    <div className="tile is-parent">
-                                            <div className="tile is-child box">
-                                                <p className="subtitle">Mozneurons SVIT, Vasad</p><br/>
-                                                <a href="https://www.instagram.com/moz_neurons">Instagram</a>
-                                            </div>
-                                        </div>
-                                    <div className="tile is-parent"></div>
-                                    <div className="tile is-parent"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
   </Layout>
 )
+
+export const query = graphql`
+  query IndexQuery {
+    regionalGroups: allRegionalgroupsJson {
+      edges {
+        node {
+          name
+          website
+          twitter
+          telegram
+          instagram
+          facebook
+          GitHub
+        }
+      }
+    }
+    functionalGroups: allFunctionalgroupsJson {
+      edges {
+        node {
+          name
+          telegram
+          GitHub
+        }
+      }
+    }
+    campusClubs: allCampusclubsJson {
+      edges {
+        node {
+          name
+          twitter
+          instagram
+          facebook
+          website
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

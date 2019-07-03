@@ -1,7 +1,7 @@
 body {
   background:#f5f1e8 url("/img/bg-gradient-sand.png") repeat-x;
   background:url("/img/bg-gradient-sand.png") repeat-x,url("/img/bg-sand.png") repeat,#f5f1e8;
-  font-family: 'Fira Sans', 'Open Sans', sans-serif;
+  font-family: 'Fira Sans', 'Open Sans', sans-serif !important;
 }
 
 .title {
