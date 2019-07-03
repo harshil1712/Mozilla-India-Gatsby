@@ -3,9 +3,19 @@ import {graphql} from 'gatsby'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RegionalGroups from '../components/regionalgroups'
-import FunctionalGroups from '../components/functionalgroups'
 import Groups from '../components/groups'
+import { FaTwitterSquare, FaFacebookSquare, FaInstagram, FaBlog, FaDiscourse, FaTelegramPlane, FaEnvelope } from 'react-icons/fa'
+import styled from 'styled-components'
+
+import RiotLogo from '../images/icon-riot.svg'
+
+const MediaLink = styled.a`
+  vertical-align:top;
+`
+
+const Channels = styled.span`
+  vertical-align:top;
+`
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -38,27 +48,27 @@ const IndexPage = ({data}) => (
                             <ul className="iconed-list">
                                 <li>
                                     <span className="icon">
-                                        <img src="img/discourse.png" alt="Discourse Icon" />
+                                        <FaDiscourse size="fa-2x" color="#000"/>
                                     </span>
-                                    <a href="https://discourse.mozilla.org/c/india">Discourse</a> - for important topics
+                                    <Channels><a href="https://discourse.mozilla.org/c/india"> Discourse</a> - for important topics</Channels>
                                 </li>
                                 <li>
                                     <span className="icon">
-                                        <img src="img/mail.jpg" alt="Mail Icon" />
+                                        <FaEnvelope size="fa-2x" />
                                     </span>
-                                    <a href="https://lists.mozilla.org/listinfo/community-india">Mailing List</a> - for restricted visibility
+                                    <Channels><a href="https://lists.mozilla.org/listinfo/community-india"> Mailing List</a> - for restricted visibility</Channels>
                                 </li>
                                 <li>
                                     <span className="icon">
-                                        <img src="img/icon-telegram.svg" alt="Telegram Icon" />
+                                        <FaTelegramPlane size="fa-2x" color="#0088cc"/>
                                     </span>
-                                    <a href="https://t.me/MozillaIN">Telegram</a> - for instant messaging
+                                    <Channels><a href="https://t.me/MozillaIN"> Telegram</a> - for instant messaging</Channels>
                                 </li>
                                 <li>
                                     <span className="icon">
-                                        <img src="img/icon-riot.svg" alt="Matrix Icon" />
+                                        <img src={RiotLogo} alt="Matrix Icon" />
                                     </span>
-                                    <a href="https://matrix.to/#/!OkcrSgHxzzzLELqtai:matrix.org">Matrix</a> - for instant messaging
+                                    <Channels><a href="https://matrix.to/#/!OkcrSgHxzzzLELqtai:matrix.org">Matrix</a> - for instant messaging</Channels>
                                 </li>
                             </ul>
                         </div>
@@ -68,28 +78,28 @@ const IndexPage = ({data}) => (
                             <p className="title">Social Media</p>
                             <ul className="iconed-list">
                                 <li>
-                                    <span className="icon" style={{backgroun: '#1da1f2'}}>
-                                        <img src="img/twitter.png" alt="Twitter Icon"/>
+                                    <span className="icon">
+                                        <FaTwitterSquare size="fa-2x" color="#1da1f2" />
                                     </span>
-                                    <a href="https://twitter.com/MozillaIN">@MozillaIN</a>
-                                </li>
-                                <li>
-                                    <span className="icon" style={{backgroun: '#1da1f2'}}>
-                                        <img src="img/facebook.png" alt="Facebook Icon" />
-                                    </span>
-                                    <a href="https://facebook.com/mozillaindia">mozillaindia</a>
+                                    <MediaLink href="https://twitter.com/MozillaIN"> @MozillaIN</MediaLink>
                                 </li>
                                 <li>
                                     <span className="icon">
-                                        <img src="img/icon-teach.svg" id="blog-image" alt="Blog Icon" />
+                                        <FaFacebookSquare size="fa-2x" color="#1da1f2"/>
                                     </span>
-                                    <a href="https://blog.mozillaindia.org">blog</a>
+                                    <MediaLink href="https://facebook.com/mozillaindia"> mozillaindia</MediaLink>
                                 </li>
                                 <li>
                                     <span className="icon">
-                                        <img src="img/instagram.png" alt="Instagram Icon" />
+                                        <FaBlog size="fa-2x" color="rgb(242, 119, 29)"/>
                                     </span>
-                                    <a href="https://www.instagram.com/mozillain/">mozillaindia</a>
+                                    <MediaLink href="https://blog.mozillaindia.org"> blog</MediaLink>
+                                </li>
+                                <li>
+                                    <span className="icon">
+                                        <FaInstagram size="fa-2x"/>
+                                    </span>
+                                    <MediaLink href="https://www.instagram.com/mozillain/"> mozillaindia</MediaLink>
                                 </li>
                             </ul>
                         </div>
@@ -118,9 +128,10 @@ const IndexPage = ({data}) => (
                 <Groups data={data.regionalGroups} name="Regional Groups" />
                 {/* Functional Groups */}
                 <Groups data={data.functionalGroups} name="Functional Groups" />
+                {/* Campus Clubs */}
                 <Groups data={data.campusClubs} name="Campus Clubs" description={["A Mozilla University &amp; College Club is a group of students with a passion for technology who meet regularly to advance this mission by building and innovating on open source projects that keep the web open.To learn more about Campus Clubs, you can visit the ",<a href='https://campus.mozilla.community/'>Mozilla Campus Club Website</a>]} />
-                </div>
-        </section>
+            </div>
+    </section>
   </Layout>
 )
 

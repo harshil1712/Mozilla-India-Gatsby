@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Mozilla India Website`,
+    description: `Mozilla India is community driven my Mozillian Volunteers`,
+    author: `@harshil1712`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -40,6 +40,10 @@ module.exports = {
             family: `Fira Sans`,
             variants: [`400`, `700`]
           },
+          {
+            family: `Zilla Slab Highlight`,
+            variants:[`700`]
+          }
         ],
       },
     },

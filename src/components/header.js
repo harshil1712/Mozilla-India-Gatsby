@@ -1,14 +1,13 @@
-import PropTypes from "prop-types"
 import React from "react"
 import logo from '../images/mozilla-wordmark.svg'
 
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header>
     <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <a className="navbar-item" href="https://mozillaindia.org">
-                    <img src={logo} width="112" height="32" /><span id="mozilla-india-wordmark"> india &nbsp;</span>
+                    <img src={logo} width="112" height="32" alt="mozilla logo" /><span id="mozilla-india-wordmark"> india &nbsp;</span>
                 </a>
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
@@ -27,7 +26,7 @@ const Header = ({ siteTitle }) => (
                     <a className="navbar-item" href="https://mozilla.org">
                         Global
                     </a>
-                    <a className="navbar-item" href=" https://activate.mozilla.community/">
+                    <a className="navbar-item" href="https://activate.mozilla.community/">
                         Activate
                     </a>
                 </div>
@@ -35,13 +34,5 @@ const Header = ({ siteTitle }) => (
         </nav>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
